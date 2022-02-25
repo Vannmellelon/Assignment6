@@ -1,4 +1,6 @@
 import { useState, createContext, useContext } from "react";
+import { STOORAGE_KEY_USER } from "../const/storageKeys";
+import { storageRead } from "../utils/storage";
 
 // context -> exposing the state
 
@@ -12,7 +14,7 @@ export const useUser = () => {
 // provider -> managing state
 const UserProvider = (props) => {
 
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState(storageRead(STOORAGE_KEY_USER));
     const state = {
         user,
         setUser

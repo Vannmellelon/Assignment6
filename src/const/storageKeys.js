@@ -1,0 +1,1 @@
+export const STOORAGE_KEY_USER = "translation-user";
