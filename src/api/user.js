@@ -1,5 +1,5 @@
 import { createHeaders } from "./index";
-const apiURL = process.env.respons.REACT_APP_API_URL;
+const apiURL = process.env.REACT_APP_API_URL;
 
 const checkForUser = async (username) => {
 
@@ -20,7 +20,7 @@ const createUser = async (username) => {
     // POST req
     try {
         const response = await fetch(apiURL, {
-            method: "POST",
+            method: "POST", // create a resource (new user)
             headers: createHeaders(),
             body: JSON.stringify({
                 username,
@@ -49,7 +49,7 @@ export const loginUser = async (username) => {
     
     // return the existing user, they are "logged in"
     if (user.length > 0) {
-        return [null, user.pop()]
+        return [null, user.pop()];
     }
 
     // user does not exist, create user

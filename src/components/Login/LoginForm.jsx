@@ -1,5 +1,10 @@
 import { useForm } from "react-hook-form";
-
+import { loginUser } from "../../api/user";
+import { useState, useEffect } from "react";
+import { storageRead } from "../../utils/storage";
+import { useUser } from "../../context/UserContext";
+import { useNavigate } from "react-router-dom";
+ 
 // config for username, specifies
 const usernameConfig = {
     required: true,
@@ -8,19 +13,45 @@ const usernameConfig = {
 
 const LoginForm = () => {
 
-    // destructure stuff from useForm
+    // hooks
+    // destructure from useForm
     const {
         register,
         handleSubmit,
         formState: { errors }
     } = useForm();
+    const {user, setUser} = useUser();
+    const navigate = useNavigate();
 
-    const onSubmit = (data) => {
-        console.log(data);
+    // local state
+    const [loading, setLoading] = useState(false);
+    const [apiError, setApiError] = useState(null);
+
+    // side-effects
+    // empty dependency [] -> only run once
+    useEffect(() => {
+        console.log("user", user);
+        if (user !== null) {
+            navigate("/profile");
+        }
+    }, [user, navigate]);
+
+    const onSubmit = async ({username}) => {
+
+        setLoading(true);
+        const [error, userResponse] = await loginUser(username);
+        if (error !== null) {
+            setApiError(error);
+        }
+        // store user in local storage
+        if (userResponse !== null) {
+            storageRead("translation-user", userResponse);
+            setUser(userResponse);
+        }
+        setLoading(false);
     }
 
-    console.log(errors);
-
+    // render func
     // wrapped and objectified -> invoke every time it renders
     const errorMessage = (() => {
         if (!errors.username) {
@@ -49,6 +80,9 @@ const LoginForm = () => {
                     </fieldset>
 
                 <button type="submit">Continue</button>
+
+                {loading && <p>Logging in...</p>}
+                {apiError && <p>{apiError}</p>}
             </form>
         </>
     )

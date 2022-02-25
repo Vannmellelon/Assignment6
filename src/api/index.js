@@ -1,4 +1,4 @@
-const apiKey = process.env.REACT_API_KEY;
+const apiKey = process.env.REACT_APP_API_KEY;
 
 // helper code, creates header for api-requests
 export const createHeaders = () => {
