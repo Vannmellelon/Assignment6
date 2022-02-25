@@ -1,7 +1,7 @@
 const ProfileHeader = ({username}) => {
     return (
         <header>
-            Hello! You are logged in as: {username}
+            <h4>Hello! You are logged in as: {username}</h4>
         </header>
     )
 }
