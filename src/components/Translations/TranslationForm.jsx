@@ -6,7 +6,8 @@ const inputConfig = {
     required: true,
     maxLength: 40,
 }
-const TranslationForm = () => {
+
+const TranslationForm = ({onTranslate}) => {
 
     const {
         register,
@@ -14,10 +15,11 @@ const TranslationForm = () => {
         formState: {errors}
     }= useForm();
 
-    const onSubmit = (data) => {
-
+    const onSubmit = ({inputField}) => {
+        onTranslate(inputField);
     }
 
+    // maybe change input to textarea?
     return (
         <form onSubmit={handleSubmit(onSubmit)} >
             <fieldset>
@@ -25,7 +27,7 @@ const TranslationForm = () => {
                 <input 
                 type="text"
                 placeholder="Text to translate..."
-                {...register("input-field", inputConfig)} />
+                {...register("inputField", inputConfig)} />
             </fieldset>
 
             <button type="submit">Translate!</button>
