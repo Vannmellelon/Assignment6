@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { storageRead } from "../../utils/storage";
 import { useUser } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
-import { STOORAGE_KEY_USER } from "../../const/storageKeys";
+import { STORAGE_KEY_USER } from "../../const/storageKeys";
  
 // config for username, specifies
 const usernameConfig = {
@@ -46,7 +46,7 @@ const LoginForm = () => {
         }
         // store user in local storage
         if (userResponse !== null) {
-            storageRead(STOORAGE_KEY_USER, userResponse);
+            storageRead(STORAGE_KEY_USER, userResponse);
             setUser(userResponse);
         }
         setLoading(false);
