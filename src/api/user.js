@@ -2,7 +2,9 @@ import { createHeaders } from "./index";
 
 const apiURL = process.env.REACT_APP_API_URL;
 
-const checkForUser = async (username) => {
+// TODO refactor function names to user*
+
+const userCheckFor = async (username) => {
 
     try {
         const response = await fetch(apiURL + "?username=" + username);
@@ -17,7 +19,7 @@ const checkForUser = async (username) => {
     }
 }
 
-const createUser = async (username) => {
+const userCreate = async (username) => {
     // POST req
     try {
         const response = await fetch(apiURL, {
@@ -41,7 +43,7 @@ const createUser = async (username) => {
 
 export const loginUser = async (username) => {
 
-    const [checkError, user] = await checkForUser(username);
+    const [checkError, user] = await userCheckFor(username);
     
     // if checkError
     if (checkError !== null) {
@@ -54,5 +56,21 @@ export const loginUser = async (username) => {
     }
 
     // user does not exist, create user
-    return await createUser(username);
+    return await userCreate(username);
+}
+
+export const userById = async (userId) => {
+    try {
+        const response = await fetch(`${apiURL}/${userId}`);
+
+        if (!response.ok) {
+            throw new Error("Could not fetch user with ID: ", userId);
+        }
+        const user = await response.json();
+        return [null, user];
+
+    }
+    catch (error) {
+        return [error.message, null];
+    }
 }

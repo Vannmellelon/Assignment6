@@ -1,14 +1,16 @@
 import { translationAdd } from "../api/translation";
 import TranslationForm from "../components/Translations/TranslationForm";
+import { STORAGE_KEY_USER } from "../const/storageKeys";
 import { useUser } from "../context/UserContext";
 import withAuth from "../hoc/withAuth";
+import { storageSave } from "../utils/storage";
 
 // maybe(?) importere de siste x oversettelsene
 // lage knapper/shortcuts? video 012
 
 const Translations = () => {
 
-    const {user} = useUser();
+    const {user, setUser} = useUser();
 
     const handleTranslateClick = async (input) => {
         console.log(input);
@@ -21,9 +23,19 @@ const Translations = () => {
         // Works, but can only add one at the time
         // bc local state does not get updated with the newest addition and it then gets overwritten (?)
         // user data only gets fetched from database on login
-        const [error, result] = await translationAdd(user, input);
+        const [error, updatedUser] = await translationAdd(user, input);
+        if (error !== null) {
+            return;
+            // TODO, display error message(?)
+        }
+
+        // sync UI and server state
+        storageSave(STORAGE_KEY_USER, updatedUser);
+        // update context state
+        setUser(updatedUser);
+
         console.log("Error ", error);
-        console.log("Result ", result);
+        console.log("Result ", updatedUser);
         // yey!
     }
 
