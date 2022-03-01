@@ -1,9 +1,10 @@
 import LoginForm from "../components/Login/LoginForm";
+import "./views.css";
 
 const Login = () => {
     return (
         <>
-            <h1>Login</h1>
+            <header><h2>Login</h2></header>
             <LoginForm />
         </>
     )

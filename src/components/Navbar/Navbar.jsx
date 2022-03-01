@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
+import "./navbar.css";
 
 const Navbar = () => {
 
@@ -7,20 +8,12 @@ const Navbar = () => {
 
     return (
         <nav>
-            <ul>
-                <li>Translations</li>
-            </ul>
-
-            {user !== null && 
-                <ul>
-                    <li>
-                        <NavLink to="/translations">Translations</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/profile">Profile</NavLink>
-                    </li>
-                    
-                </ul>
+            <h1>Sign language translator</h1>
+            {user !== null &&
+                <div>
+                    <p><NavLink to="/translations">Translations</NavLink></p>
+                    <p><NavLink to="/profile">Profile</NavLink></p>
+                </div>
             }
         </nav>
     )

@@ -1,0 +1,28 @@
+.historyItem {
+    display: block;
+}
+
+/* just make one header?? */
+#LoginHeader {
+    background-color: aquamarine;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#ProfileHeader {
+    background-color: aquamarine;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#TranslationsHeader {
+    background-color: aquamarine;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

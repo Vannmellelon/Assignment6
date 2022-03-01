@@ -8,6 +8,7 @@ const TranslationBox = ({someUser}) => {
     let absolutelyLast = lastTranslation.split("");
     //console.log("TranslationBox, absolutelyLast: ", absolutelyLast);
 
+    // Maps all letters in the latest translation to images via the TranslationHand components
     let hands = absolutelyLast.map((letter, index) => <TranslationHand key={index} letter={letter} />);
     //console.log("TranslationBox, hands", hands);
     return (

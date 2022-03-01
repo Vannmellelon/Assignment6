@@ -1,0 +1,22 @@
+/* global, for all li */
+li {
+    display: inline;
+    padding: 10px;
+}
+
+p {
+    display: inline;
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+nav {
+    background-color: mediumaquamarine;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

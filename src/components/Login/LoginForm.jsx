@@ -68,7 +68,7 @@ const LoginForm = () => {
 
     return (
         <>
-            <h2>What's your name?</h2>
+            <h4>What's your name?</h4>
             <form onSubmit={ handleSubmit(onSubmit) }>
                 <fieldset>
                     <legend>Login: </legend>

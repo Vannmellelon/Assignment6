@@ -6,6 +6,7 @@ import { STORAGE_KEY_USER } from "../const/storageKeys";
 import { useUser } from "../context/UserContext";
 import withAuth from "../hoc/withAuth";
 import { storageSave } from "../utils/storage";
+import "./views.css";
 
 const Translations = () => {
 
@@ -39,7 +40,7 @@ const Translations = () => {
 
     return (
         <>
-            <h1>Translations</h1>
+            <header id="TranslationsHeader"><h2>Translations</h2></header>
             <section id="input-field">
                 <TranslationForm onTranslate={handleTranslateClick} />
                 <TranslationBox  someUser={user} />

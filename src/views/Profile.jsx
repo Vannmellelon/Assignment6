@@ -7,6 +7,7 @@ import { STORAGE_KEY_USER } from "../const/storageKeys";
 import { useUser } from "../context/UserContext";
 import withAuth from "../hoc/withAuth";
 import { storageSave } from "../utils/storage";
+import "./views.css";
 
 const Profile = () => {
 
@@ -28,7 +29,6 @@ const Profile = () => {
 
     return (
         <>
-            <h1>Profile</h1>
             <ProfileHeader username={user.username} />
             <ProfileActions />
             <ProfileTranslationHistory translations={user.translations} />
