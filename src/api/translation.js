@@ -29,6 +29,25 @@ export const translationAdd = async (user, translation) => {
 }
 
 // clear translations
-export const translationClearHistory = (userId) => {
+export const translationClearHistory = async (userId) => {
 
+    try {
+        const response = fetch(`${apiURL}/${userId}`, {
+            method: "PATCH",
+            headers: createHeaders(),
+            body: JSON.stringify({
+                translations: [],
+            })
+        })
+
+        if (!response.ok) {
+            throw new Error("Could not clear translation history.");
+        }
+
+        const result = await response.json();
+        return [null, result];
+        
+    } catch (error) {
+        return [error.message, null];
+    }
 }

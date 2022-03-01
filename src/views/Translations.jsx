@@ -20,9 +20,6 @@ const Translations = () => {
         // & Display images
 
         // Send HTTP req to save translation (text only)
-        // Works, but can only add one at the time
-        // bc local state does not get updated with the newest addition and it then gets overwritten (?)
-        // user data only gets fetched from database on login
         const [error, updatedUser] = await translationAdd(user, input);
         if (error !== null) {
             return;

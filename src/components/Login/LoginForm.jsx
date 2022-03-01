@@ -71,6 +71,7 @@ const LoginForm = () => {
             <h2>What's your name?</h2>
             <form onSubmit={ handleSubmit(onSubmit) }>
                 <fieldset>
+                    <legend>Login: </legend>
                     <label htmlFor="username">Username: </label>
                     <input 
                     type="text" 

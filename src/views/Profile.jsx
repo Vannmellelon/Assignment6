@@ -24,7 +24,6 @@ const Profile = () => {
         }
 
         //findUser();
-
     }, []);
 
     return (
