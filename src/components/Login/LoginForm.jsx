@@ -77,11 +77,11 @@ const LoginForm = () => {
                     type="text" 
                     placeholder="Anne" 
                     { ...register("username", usernameConfig) } />
-                    
+                    <button type="submit">Continue</button>
                     { errorMessage }
                     </fieldset>
 
-                <button type="submit">Continue</button>
+
 
                 {loading && <p>Logging in...</p>}
                 {apiError && <p>{apiError}</p>}

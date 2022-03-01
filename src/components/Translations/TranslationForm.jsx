@@ -28,9 +28,9 @@ const TranslationForm = ({onTranslate}) => {
                 type="text"
                 placeholder="Text to translate..."
                 {...register("inputField", inputConfig)} />
+                <button type="submit">Translate!</button>
             </fieldset>
 
-            <button type="submit">Translate!</button>
         </form>
     )
 
