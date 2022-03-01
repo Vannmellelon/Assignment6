@@ -14,6 +14,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This application was developed as a part of the .NET Fullstack course at Noroff Accelerate.
 
 
+## Usage
+
+I've deployed this app to heroku using [this](https://gitlab.com/javascript-project-examples/heroku-deployment-guides/-/blob/main/guides/heroku-react-deployment.md) guide.
+
+[Click here](https://evening-tundra-13186.herokuapp.com/) to test it out!
+
 
 ## Available Scripts
 
@@ -36,12 +42,6 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-
-## Usage
-
-
-[Click here](fakelink) to use!
 
 
 ## Maintainer
