@@ -1,17 +1,21 @@
-const TranslationBox = ({ }) => {
-    // Display the images 
+import TranslationHand from "./TranslationHand";
 
+const TranslationBox = ({someUser}) => {
     
-    // TODO 
-    // make separate component that parses the text into images
-    // Watch the rest of the videos (13 ->)
-    // save translations
-    // add option to delete saved translations
-    // make the whole app look NOICE
-    return (
-        <div>
+    //console.log("TranslationBox, someUser.translations: ", someUser.translations);
+    let lastTranslation = someUser.translations[someUser.translations.length-1] || "";
+    //console.log("TranslationBox, lastTranslation: ", lastTranslation);
+    let absolutelyLast = lastTranslation.split("");
+    //console.log("TranslationBox, absolutelyLast: ", absolutelyLast);
 
-        </div>
+    let hands = absolutelyLast.map((letter, index) => <TranslationHand key={index} letter={letter} />);
+    //console.log("TranslationBox, hands", hands);
+    return (
+        <section>
+            <ul>
+                {hands}
+            </ul>
+        </section>
     )
 }
 export default TranslationBox;

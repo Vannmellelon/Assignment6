@@ -28,7 +28,7 @@ const ProfileActions = () => {
         const [clearError, clearResult] = await translationClearHistory(user.id);
         console.log("History result", clearResult);
     
-        // THrows an error every time even thought the API gets updated successfully
+        // THrows an error every time even thought the API gets updated successfully ??
         // drives me insane, but it does work, so I'm leaving it for now. >:(
         if (clearError !== null) {
             console.log("Error: ", clearError);
